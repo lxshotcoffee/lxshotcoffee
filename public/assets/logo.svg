@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="LX SHOT Coffee logo">
+  <rect width="512" height="512" rx="96" fill="#140d08"/>
+  <path d="M153 172c0-53 43-96 96-96h14c53 0 96 43 96 96v22c0 14-11 25-25 25h-156c-14 0-25-11-25-25v-22Z" fill="#d4a36b"/>
+  <path d="M168 246c0-49 39-88 88-88h0c49 0 88 39 88 88v88c0 49-39 88-88 88h0c-49 0-88-39-88-88v-88Z" fill="#f6efe7"/>
+  <path d="M214 220h84v128h-84z" fill="#140d08"/>
+  <rect x="170" y="362" width="172" height="28" rx="14" fill="#d4a36b"/>
+</svg>
