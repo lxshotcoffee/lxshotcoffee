@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520">
+  <defs>
+    <linearGradient id="scoopBg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0b0b0b"/>
+      <stop offset="100%" stop-color="#191615"/>
+    </linearGradient>
+  </defs>
+  <rect width="520" height="520" rx="42" fill="url(#scoopBg)"/>
+  <path d="M112 148c0-10 8-18 18-18h260c10 0 18 8 18 18v72c0 10-8 18-18 18H130c-10 0-18-8-18-18v-72Z" fill="#111" stroke="#332c26" stroke-width="4"/>
+  <path d="M144 240c0-18 14-32 32-32h168c18 0 32 14 32 32v140c0 18-14 32-32 32H176c-18 0-32-14-32-32V240Z" fill="#0f0f0f" stroke="#3e3328" stroke-width="4"/>
+  <path d="M264 124c0-10 8-18 18-18h58c10 0 18 8 18 18v180c0 10-8 18-18 18h-58c-10 0-18-8-18-18V124Z" fill="#1c1814" stroke="#3d332a" stroke-width="4"/>
+  <image href="../../logo.png" x="158" y="152" width="110" height="110" preserveAspectRatio="xMidYMid meet"/>
+  <text x="156" y="430" font-family="Inter, Arial, sans-serif" font-size="20" fill="#d4af37" font-weight="700">Roastery Scoop</text>
+</svg>

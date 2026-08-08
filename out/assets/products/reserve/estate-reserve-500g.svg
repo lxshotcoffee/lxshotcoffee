@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="1120" viewBox="0 0 820 1120">
+  <defs>
+    <linearGradient id="reserveMatte" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#090909"/>
+      <stop offset="100%" stop-color="#171717"/>
+    </linearGradient>
+    <filter id="reserveShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="22" stdDeviation="32" flood-color="#000" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+  <g filter="url(#reserveShadow)" transform="translate(80,80)">
+    <rect x="0" y="0" width="660" height="960" rx="56" fill="url(#reserveMatte)"/>
+    <rect x="60" y="160" width="540" height="420" rx="24" fill="#070707" stroke="#161616" stroke-width="1"/>
+    <image href="../../logo.png" x="88" y="200" width="148" height="148" preserveAspectRatio="xMidYMid meet"/>
+    <text x="260" y="268" font-family="Montserrat, Arial, sans-serif" font-size="34" fill="#F6EFE7" font-weight="700">Estate Reserve</text>
+    <text x="260" y="304" font-family="Inter, Arial, sans-serif" font-size="14" fill="#cbbfa6">Ethiopia Guji Uraga • 500g • Reserve</text>
+    <text x="88" y="360" font-family="Inter, Arial, sans-serif" font-size="14" fill="#e8dccb">Burnt sugar, dried fig, and luminous stone fruit with a polished finish.</text>
+    <rect x="88" y="460" width="140" height="46" rx="10" fill="#0e0e0e" stroke="#212121"/>
+    <text x="158" y="492" font-family="Inter, Arial, sans-serif" font-size="14" fill="#d4a36b" text-anchor="middle">500G</text>
+    <line x1="88" y1="536" x2="628" y2="536" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+    <text x="88" y="584" font-family="Inter, Arial, sans-serif" font-size="13" fill="#b9a688">Limited-release premium reserve, handcrafted for tasting menus.</text>
+  </g>
+</svg>

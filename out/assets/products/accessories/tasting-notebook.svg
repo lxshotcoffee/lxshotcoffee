@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520">
+  <defs>
+    <linearGradient id="bookBg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#090907"/>
+      <stop offset="100%" stop-color="#1a1612"/>
+    </linearGradient>
+  </defs>
+  <rect width="520" height="520" rx="42" fill="url(#bookBg)"/>
+  <rect x="90" y="92" width="340" height="360" rx="28" fill="#111" stroke="#332c26" stroke-width="4"/>
+  <rect x="110" y="112" width="300" height="320" rx="20" fill="#0c0c0c"/>
+  <path d="M128 148h264" stroke="#3d3328" stroke-width="4" stroke-linecap="round"/>
+  <path d="M128 188h264" stroke="#3d3328" stroke-width="4" stroke-linecap="round"/>
+  <path d="M128 228h264" stroke="#3d3328" stroke-width="4" stroke-linecap="round"/>
+  <image href="../../logo.png" x="196" y="252" width="120" height="120" preserveAspectRatio="xMidYMid meet"/>
+  <text x="140" y="462" font-family="Inter, Arial, sans-serif" font-size="20" fill="#d4af37" font-weight="700">Tasting Notebook</text>
+</svg>

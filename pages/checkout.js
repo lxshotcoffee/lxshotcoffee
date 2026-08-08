@@ -1,6 +1,13 @@
+"use client";
+
+"use client";
+
+import Head from 'next/head';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useCart } from '../components/CartContext';
+import SiteFooter from '../components/SiteFooter';
+import SiteHeader from '../components/SiteHeader';
 
 export default function CheckoutPage() {
   const { items, clear } = useCart();
@@ -15,18 +22,11 @@ export default function CheckoutPage() {
 
   return (
     <main className="page-shell">
-      <header className="site-header">
-        <div className="brand-row">
-          <Link href="/" className="brand-mark">
-            <img src="/lxshotcoffee/assets/logo.png" alt="LX SHOT logo" className="brand-logo-img" />
-          </Link>
-          <nav className="top-nav">
-            <Link href="/">Home</Link>
-            <Link href="/shop">Shop</Link>
-            <Link href="/story">Story</Link>
-          </nav>
-        </div>
-      </header>
+      <Head>
+        <title>Checkout | LX SHOT</title>
+        <meta name="description" content="Complete your order with LX SHOT. Secure payment, shipping details, and premium order review." />
+      </Head>
+      <SiteHeader />
 
       <section className="hero-card">
         <div className="checkout-hero">
@@ -106,6 +106,8 @@ export default function CheckoutPage() {
           </div>
         )}
       </section>
+
+      <SiteFooter />
     </main>
   );
 }

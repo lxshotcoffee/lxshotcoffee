@@ -15,7 +15,7 @@ export default function CartDrawer() {
         <div className="cart-items">
           {items.length === 0 && <p className="muted">Your cart is empty.</p>}
           {items.map((item) => (
-            <div className="cart-row" key={item.name}>
+            <div className="cart-row" key={item.id}>
               <div style={{display: 'flex', gap: '10px', alignItems: 'center'}}>
                 {item.image && (
                   <img src={item.image} alt={item.imageAlt || item.name} style={{width:56, height:56, objectFit:'cover', borderRadius:8, background:'#080707', border:'1px solid rgba(255,255,255,0.04)'}} />
@@ -26,8 +26,8 @@ export default function CartDrawer() {
                 </div>
               </div>
               <div style={{textAlign:'right'}}>
-                <div className="muted">${(item.price || 0).toFixed(2)}</div>
-                <button className="button-secondary" onClick={() => remove(item.name)}>Remove</button>
+                <div className="muted">${((item.price || 0) * item.qty).toFixed(2)}</div>
+                <button className="button-secondary" onClick={() => remove(item.id)}>Remove</button>
               </div>
             </div>
           ))}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="540" viewBox="0 0 760 540">
+  <defs>
+    <linearGradient id="giftboxMatte" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#070707"/>
+      <stop offset="100%" stop-color="#121212"/>
+    </linearGradient>
+    <filter id="giftboxShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000" flood-opacity="0.58"/>
+    </filter>
+  </defs>
+  <g transform="translate(40,40)" filter="url(#giftboxShadow)">
+    <rect x="0" y="0" width="680" height="460" rx="28" fill="url(#giftboxMatte)"/>
+    <rect x="56" y="56" width="568" height="154" rx="18" fill="#0d0d0d" stroke="#1d1d1d"/>
+    <image href="../../logo.png" x="88" y="84" width="108" height="108" preserveAspectRatio="xMidYMid meet"/>
+    <text x="216" y="126" font-family="Montserrat, Arial, sans-serif" font-size="30" fill="#F6EFE7" font-weight="700">Black Ceremony</text>
+    <text x="216" y="154" font-family="Inter, Arial, sans-serif" font-size="13" fill="#cbbfa6">Luxury Gift Box</text>
+    <text x="88" y="246" font-family="Inter, Arial, sans-serif" font-size="13" fill="#e8dccb">Elevated set including single-origin bag, tasting notes, and premium packaging.</text>
+    <rect x="88" y="308" width="472" height="120" rx="18" fill="#0b0b0b" stroke="#232323"/>
+    <text x="126" y="338" font-family="Inter, Arial, sans-serif" font-size="13" fill="#d4a36b">Gift-ready ritual box with luxury black finish.</text>
+  </g>
+</svg>
