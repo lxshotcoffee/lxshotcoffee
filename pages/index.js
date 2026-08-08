@@ -1,27 +1,26 @@
-"use client";
-
 import Link from 'next/link';
-import { useMemo, useRef, useState, useEffect } from 'react';
-import { useCart } from './components/CartContext';
+import { useMemo, useRef, useState } from 'react';
+import { useCart } from '../components/CartContext';
+import CartDrawer from '../components/CartDrawer';
 
 const featuredProducts = [
   {
     name: 'Velvet Espresso',
     origin: 'Colombia',
     description: 'A rich roast with caramel sweetness and a glossy crema finish.',
-    image: '/assets/espresso.svg',
+    price: 18,
   },
   {
     name: 'Midnight Latte',
     origin: 'Ethiopia',
     description: 'Silky milk notes with floral brightness and a smooth finish.',
-    image: '/assets/latte.svg',
+    price: 18,
   },
   {
     name: 'Northwind Cold Brew',
     origin: 'Brazil',
     description: 'Bold, low-acid coffee crafted for slow mornings and late nights.',
-    image: '/assets/cold-brew.svg',
+    price: 18,
   },
 ];
 
@@ -29,27 +28,42 @@ export default function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [carouselIndex, setCarouselIndex] = useState(0);
   const trackRef = useRef(null);
+  const { add } = useCart();
 
   const activeProduct = useMemo(() => featuredProducts[activeIndex], [activeIndex]);
 
-  const { add } = useCart();
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-    const cardWidth = track.querySelector('.product-card')?.clientWidth || 320;
-    track.style.transform = `translateX(-${carouselIndex * (cardWidth + 24)}px)`;
-  }, [carouselIndex]);
-
   return (
     <main className="page-shell">
+      <header className="site-header">
+        <div className="brand-row">
+          <Link href="/" className="brand-mark">
+            <div className="brand-logo" aria-hidden>
+              <svg width="132" height="46" viewBox="0 0 240 46" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LX SHOT logo">
+                <defs>
+                  <linearGradient id="goldLogo" x1="0" x2="1">
+                    <stop offset="0%" stopColor="#D4AF37" />
+                    <stop offset="100%" stopColor="#C5A880" />
+                  </linearGradient>
+                </defs>
+                <rect x="0" y="0" width="48" height="46" rx="10" fill="#111111" />
+                <circle cx="24" cy="18" r="6" fill="url(#goldLogo)" />
+                <text x="64" y="34" fontFamily="Georgia, serif" fontSize="24" fill="#F6EFE7" fontWeight="700" letterSpacing="5">LX SHOT</text>
+              </svg>
+            </div>
+          </Link>
+          <nav className="top-nav">
+            <Link href="/">Home</Link>
+            <Link href="/shop">Shop</Link>
+            <Link href="/story">Story</Link>
+          </nav>
+        </div>
+      </header>
+
       <section className="hero-card">
         <div className="hero-copy">
           <p className="eyebrow">Premium coffee for modern rituals</p>
           <h1>Crafted roasts that turn every sip into a signature moment.</h1>
-          <p className="hero-text">
-            Discover elevated blends, seasonal release notes, and refined house brewing essentials.
-          </p>
+          <p className="hero-text">Discover elevated blends, seasonal release notes, and refined house brewing essentials.</p>
           <div className="cta-row">
             <Link href="/shop" className="button-primary">Shop the collection</Link>
             <Link href="/story" className="button-secondary">Read our story</Link>
@@ -66,8 +80,8 @@ export default function HomePage() {
               </defs>
               <rect width="100%" height="100%" rx="26" fill="url(#g1)" />
               <g transform="translate(60,120)">
-                <text x="0" y="60" fontFamily="Georgia, serif" fontSize="48" fill="#d4a36b">LX</text>
-                <text x="110" y="60" fontFamily="Inter, sans-serif" fontSize="34" fill="#f6efe7">SHOT</text>
+                <text x="0" y="60" fontFamily="Georgia, serif" fontSize="48" fill="#D4AF37">LX</text>
+                <text x="110" y="60" fontFamily="Inter, sans-serif" fontSize="34" fill="#F6EFE7">SHOT</text>
               </g>
             </svg>
           </div>
@@ -78,8 +92,8 @@ export default function HomePage() {
         <div className="carousel-controls">
           <button className="button-secondary" onClick={() => setCarouselIndex(Math.max(0, carouselIndex - 1))}>Prev</button>
           <div className="dots">
-            {featuredProducts.map((p, i) => (
-              <button key={p.name} className={i === carouselIndex ? 'dot active' : 'dot'} onClick={() => setCarouselIndex(i)} aria-label={`Show ${p.name}`} />
+            {featuredProducts.map((product, index) => (
+              <button key={product.name} className={index === carouselIndex ? 'dot active' : 'dot'} onClick={() => setCarouselIndex(index)} aria-label={product.name} />
             ))}
           </div>
           <button className="button-secondary" onClick={() => setCarouselIndex(Math.min(featuredProducts.length - 1, carouselIndex + 1))}>Next</button>
@@ -89,7 +103,7 @@ export default function HomePage() {
           <div className="carousel-track" ref={trackRef}>
             {featuredProducts.map((product, index) => (
               <article key={product.name} className="product-card">
-                <div className={`product-visual product-visual--${index}`} aria-hidden>
+                <div className={`product-visual product-visual--${index}`}>
                   <div className="product-badge">{product.origin}</div>
                   <div className="product-abstract" />
                   <div className="product-gold-stamp" aria-hidden>
@@ -103,12 +117,12 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="product-copy">
-                  <p className="product-origin">{product.origin} · 340g</p>
+                  <p className="product-origin">{product.origin}</p>
                   <h2>{product.name}</h2>
                   <p>{product.description}</p>
                   <div className="price-row">
-                    <div className="price">$18.00</div>
-                    <button className="button-primary" onClick={() => add({ name: product.name, price: 18.0 })}>Add to cart</button>
+                    <div className="price">${product.price.toFixed(2)}</div>
+                    <button className="button-primary" onClick={() => add({ name: product.name, price: product.price })}>Add to cart</button>
                   </div>
                 </div>
               </article>
@@ -117,47 +131,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="showcase-card" aria-label="Interactive product showcase">
-        <div className="showcase-media">
-          <div className="showcase-visual">
-            <div className="showcase-abstract" aria-hidden />
-            <div className="showcase-label">{activeProduct.name}</div>
-          </div>
-        </div>
-        <div className="showcase-copy">
-          <p className="eyebrow">Featured highlight</p>
-          <h2>{activeProduct.name}</h2>
-          <p>{activeProduct.description}</p>
-          <div className="dot-row" role="tablist" aria-label="Coffee showcase selector">
-            {featuredProducts.map((product, index) => (
-              <button
-                key={product.name}
-                type="button"
-                aria-label={`Show ${product.name}`}
-                className={index === activeIndex ? 'dot active' : 'dot'}
-                onClick={() => setActiveIndex(index)}
-              />
-            ))}
-          </div>
-          <div className="slider-actions">
-            <button
-              type="button"
-              className="button-secondary"
-              onClick={() => setActiveIndex((activeIndex + featuredProducts.length - 1) % featuredProducts.length)}
-            >
-              Previous
-            </button>
-            <button
-              type="button"
-              className="button-primary"
-              onClick={() => setActiveIndex((activeIndex + 1) % featuredProducts.length)}
-            >
-              Next
-            </button>
-          </div>
-          <Link href="/shop" className="button-primary">Explore the roast</Link>
-        </div>
-      </section>
+      <CartDrawer />
     </main>
   );
 }
