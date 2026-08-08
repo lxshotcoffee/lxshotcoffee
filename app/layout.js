@@ -1,5 +1,7 @@
 import './globals.css';
 import Link from 'next/link';
+import { CartProvider } from './components/CartContext';
+import CartDrawer from './components/CartDrawer';
 
 export const metadata = {
   title: 'LX SHOT Coffee',
@@ -29,9 +31,11 @@ export default function RootLayout({ children }) {
             </nav>
           </div>
         </header>
-        {children}
+        <CartProvider>
+          {children}
+          <CartDrawer />
 
-        <footer className="site-footer">
+          <footer className="site-footer">
           <div className="footer-inner">
             <div className="footer-brand">
               <div className="brand-logo-sm" aria-hidden>
@@ -86,7 +90,8 @@ export default function RootLayout({ children }) {
             </div>
           </div>
           <div className="legal-bar">© {new Date().getFullYear()} LX SHOT — All rights reserved</div>
-        </footer>
+          </footer>
+        </CartProvider>
       </body>
     </html>
   );

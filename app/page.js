@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
+import { useCart } from './components/CartContext';
 
 const featuredProducts = [
   {
@@ -28,6 +29,8 @@ export default function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const activeProduct = useMemo(() => featuredProducts[activeIndex], [activeIndex]);
+
+  const { add } = useCart();
 
   return (
     <main className="page-shell">
@@ -68,11 +71,16 @@ export default function HomePage() {
             <div className={`product-visual product-visual--${index}`} aria-hidden>
               <div className="product-badge">{product.origin}</div>
               <div className="product-abstract" />
+              <img src="/lxshotcoffee/assets/logo.png" alt="brand" className="product-logo-overlay" />
             </div>
             <div className="product-copy">
               <p className="product-origin">{product.origin}</p>
               <h2>{product.name}</h2>
               <p>{product.description}</p>
+              <div style={{marginTop:8,display:'flex',gap:8}}>
+                <button className="button-secondary" onClick={() => setActiveIndex(index)}>View details</button>
+                <button className="button-primary" onClick={() => add({ name: product.name, price: 18.0 })}>Add to cart</button>
+              </div>
             </div>
           </article>
         ))}
