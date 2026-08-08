@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
           <div className="brand-row">
             <Link href="/" className="brand-mark">
               <Image
-                src="/lxshotcoffee/assets/logo.svg"
+                src="/assets/logo.svg"
                 alt="LX SHOT Coffee logo"
                 width={42}
                 height={42}

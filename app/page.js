@@ -9,19 +9,19 @@ const featuredProducts = [
     name: 'Velvet Espresso',
     origin: 'Colombia',
     description: 'A rich roast with caramel sweetness and a glossy crema finish.',
-    image: '/lxshotcoffee/assets/espresso.svg',
+    image: '/assets/espresso.svg',
   },
   {
     name: 'Midnight Latte',
     origin: 'Ethiopia',
     description: 'Silky milk notes with floral brightness and a smooth finish.',
-    image: '/lxshotcoffee/assets/latte.svg',
+    image: '/assets/latte.svg',
   },
   {
     name: 'Northwind Cold Brew',
     origin: 'Brazil',
     description: 'Bold, low-acid coffee crafted for slow mornings and late nights.',
-    image: '/lxshotcoffee/assets/cold-brew.svg',
+    image: '/assets/cold-brew.svg',
   },
 ];
 
@@ -46,7 +46,7 @@ export default function HomePage() {
         </div>
         <div className="hero-media">
           <Image
-            src="/lxshotcoffee/assets/logo.svg"
+            src="/assets/logo.svg"
             alt="LX SHOT Coffee emblem"
             width={360}
             height={360}
