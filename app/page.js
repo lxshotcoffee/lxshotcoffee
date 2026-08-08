@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
@@ -45,25 +44,31 @@ export default function HomePage() {
           </div>
         </div>
         <div className="hero-media">
-          <Image
-            src="/assets/logo.svg"
-            alt="LX SHOT Coffee emblem"
-            width={360}
-            height={360}
-          />
+          <div className="hero-art">
+            <svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet" className="hero-svg">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1">
+                  <stop offset="0%" stopColor="#1f120e" />
+                  <stop offset="100%" stopColor="#3a1f17" />
+                </linearGradient>
+              </defs>
+              <rect width="100%" height="100%" rx="26" fill="url(#g1)" />
+              <g transform="translate(60,120)">
+                <text x="0" y="60" fontFamily="Georgia, serif" fontSize="48" fill="#d4a36b">LX</text>
+                <text x="110" y="60" fontFamily="Inter, sans-serif" fontSize="34" fill="#f6efe7">SHOT</text>
+              </g>
+            </svg>
+          </div>
         </div>
       </section>
 
       <section className="shop-grid" aria-label="Featured coffee products">
         {featuredProducts.map((product, index) => (
           <article key={product.name} className="product-card">
-            <Image
-              src={product.image}
-              alt={product.name}
-              width={420}
-              height={220}
-              className="product-image"
-            />
+            <div className={`product-visual product-visual--${index}`} aria-hidden>
+              <div className="product-badge">{product.origin}</div>
+              <div className="product-abstract" />
+            </div>
             <div className="product-copy">
               <p className="product-origin">{product.origin}</p>
               <h2>{product.name}</h2>
@@ -75,13 +80,10 @@ export default function HomePage() {
 
       <section className="showcase-card" aria-label="Interactive product showcase">
         <div className="showcase-media">
-          <Image
-            src={activeProduct.image}
-            alt={activeProduct.name}
-            width={520}
-            height={520}
-            className="showcase-image"
-          />
+          <div className="showcase-visual">
+            <div className="showcase-abstract" aria-hidden />
+            <div className="showcase-label">{activeProduct.name}</div>
+          </div>
         </div>
         <div className="showcase-copy">
           <p className="eyebrow">Featured highlight</p>
