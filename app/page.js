@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
@@ -44,14 +45,25 @@ export default function HomePage() {
           </div>
         </div>
         <div className="hero-media">
-          <img src="/lxshotcoffee/assets/logo.svg" alt="LX SHOT Coffee emblem" />
+          <Image
+            src="/lxshotcoffee/assets/logo.svg"
+            alt="LX SHOT Coffee emblem"
+            width={360}
+            height={360}
+          />
         </div>
       </section>
 
       <section className="shop-grid" aria-label="Featured coffee products">
         {featuredProducts.map((product, index) => (
           <article key={product.name} className="product-card">
-            <img src={product.image} alt={product.name} />
+            <Image
+              src={product.image}
+              alt={product.name}
+              width={420}
+              height={220}
+              className="product-image"
+            />
             <div className="product-copy">
               <p className="product-origin">{product.origin}</p>
               <h2>{product.name}</h2>
@@ -63,7 +75,13 @@ export default function HomePage() {
 
       <section className="showcase-card" aria-label="Interactive product showcase">
         <div className="showcase-media">
-          <img src={activeProduct.image} alt={activeProduct.name} />
+          <Image
+            src={activeProduct.image}
+            alt={activeProduct.name}
+            width={520}
+            height={520}
+            className="showcase-image"
+          />
         </div>
         <div className="showcase-copy">
           <p className="eyebrow">Featured highlight</p>
@@ -79,6 +97,22 @@ export default function HomePage() {
                 onClick={() => setActiveIndex(index)}
               />
             ))}
+          </div>
+          <div className="slider-actions">
+            <button
+              type="button"
+              className="button-secondary"
+              onClick={() => setActiveIndex((activeIndex + featuredProducts.length - 1) % featuredProducts.length)}
+            >
+              Previous
+            </button>
+            <button
+              type="button"
+              className="button-primary"
+              onClick={() => setActiveIndex((activeIndex + 1) % featuredProducts.length)}
+            >
+              Next
+            </button>
           </div>
           <Link href="/shop" className="button-primary">Explore the roast</Link>
         </div>

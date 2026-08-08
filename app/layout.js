@@ -1,4 +1,5 @@
 import './globals.css';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata = {
@@ -13,7 +14,12 @@ export default function RootLayout({ children }) {
         <header className="site-header">
           <div className="brand-row">
             <Link href="/" className="brand-mark">
-              <img src="/lxshotcoffee/assets/logo.svg" alt="LX SHOT Coffee logo" />
+              <Image
+                src="/lxshotcoffee/assets/logo.svg"
+                alt="LX SHOT Coffee logo"
+                width={42}
+                height={42}
+              />
               <span>LX SHOT</span>
             </Link>
             <nav className="top-nav">
