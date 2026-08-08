@@ -71,7 +71,15 @@ export default function HomePage() {
             <div className={`product-visual product-visual--${index}`} aria-hidden>
               <div className="product-badge">{product.origin}</div>
               <div className="product-abstract" />
-              <img src="/lxshotcoffee/assets/logo.png" alt="brand" className="product-logo-overlay" />
+              <div className="product-gold-stamp" aria-hidden>
+                <svg width="84" height="84" viewBox="0 0 84 84" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0" y="0" width="84" height="84" rx="10" fill="#0B0B0B" />
+                  <g transform="translate(6,10)">
+                    <text x="36" y="34" textAnchor="middle" fontFamily="Georgia, serif" fontSize="18" fill="#D4AF37" fontWeight="700" letterSpacing="2">LX</text>
+                    <text x="36" y="54" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="8" fill="#C5A880">SHOT</text>
+                  </g>
+                </svg>
+              </div>
             </div>
             <div className="product-copy">
               <p className="product-origin">{product.origin}</p>
