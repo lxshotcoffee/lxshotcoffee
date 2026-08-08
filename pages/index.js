@@ -1,66 +1,42 @@
-import Link from 'next/link';
-import { useMemo, useRef, useState } from 'react';
-import { useCart } from '../components/CartContext';
-import CartDrawer from '../components/CartDrawer';
+"use client";
 
-const featuredProducts = [
-  {
-    name: 'Velvet Espresso',
-    origin: 'Colombia',
-    description: 'A rich roast with caramel sweetness and a glossy crema finish.',
-    price: 18,
-  },
-  {
-    name: 'Midnight Latte',
-    origin: 'Ethiopia',
-    description: 'Silky milk notes with floral brightness and a smooth finish.',
-    price: 18,
-  },
-  {
-    name: 'Northwind Cold Brew',
-    origin: 'Brazil',
-    description: 'Bold, low-acid coffee crafted for slow mornings and late nights.',
-    price: 18,
-  },
+import Head from 'next/head';
+import Link from 'next/link';
+import { useRef, useState } from 'react';
+import { useCart } from '../components/CartContext';
+import ProductPackaging from '../components/ProductPackaging';
+import SiteHeader from '../components/SiteHeader';
+import SiteFooter from '../components/SiteFooter';
+
+import products from '../data/products';
+
+const collections = [
+  { title: 'Whole Bean', description: 'Single-origin and blend bags for espresso, drip, and cold brew rituals.', href: '/shop/velvet-espresso/' },
+  { title: 'Ground Coffee', description: 'Ready-to-brew ground roasts for every specialty coffee moment.', href: '/shop/ember-ground/' },
+  { title: 'Instant & Sticks', description: 'Everyday convenience with premium instant and stick packs.', href: '/shop/dawn-instant/' },
+  { title: 'Pods', description: 'Machine-ready capsule blends with rich crema and balanced body.', href: '/shop/artisan-pods/' },
+  { title: 'Reserve', description: 'Small-lot reserve collection with refined nuance and clarity.', href: '/shop/estate-reserve/' },
+  { title: 'Luxury Gifts', description: 'Curated gift boxes and lifestyle sets for special occasions.', href: '/shop/black-ceremony-gift-box/' },
 ];
 
+const featuredProducts = products.slice(0, 3);
+
 export default function HomePage() {
-  const [activeIndex, setActiveIndex] = useState(0);
   const [carouselIndex, setCarouselIndex] = useState(0);
   const trackRef = useRef(null);
   const { add } = useCart();
 
-  const activeProduct = useMemo(() => featuredProducts[activeIndex], [activeIndex]);
-
   return (
     <main className="page-shell">
-      <header className="site-header">
-        <div className="brand-row">
-          <Link href="/" className="brand-mark">
-            <div className="brand-logo" aria-hidden>
-              <svg width="132" height="46" viewBox="0 0 240 46" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LX SHOT logo">
-                <defs>
-                  <linearGradient id="goldLogo" x1="0" x2="1">
-                    <stop offset="0%" stopColor="#D4AF37" />
-                    <stop offset="100%" stopColor="#C5A880" />
-                  </linearGradient>
-                </defs>
-                <rect x="0" y="0" width="48" height="46" rx="10" fill="#111111" />
-                <circle cx="24" cy="18" r="6" fill="url(#goldLogo)" />
-                <text x="64" y="34" fontFamily="Georgia, serif" fontSize="24" fill="#F6EFE7" fontWeight="700" letterSpacing="5">LX SHOT</text>
-              </svg>
-            </div>
-          </Link>
-          <nav className="top-nav">
-            <Link href="/">Home</Link>
-            <Link href="/shop">Shop</Link>
-            <Link href="/story">Story</Link>
-          </nav>
-        </div>
-      </header>
+      <Head>
+        <title>LX SHOT | Luxury Specialty Coffee</title>
+        <meta name="description" content="LX SHOT offers premium specialty coffee, luxury packaging, and a refined ecommerce experience." />
+      </Head>
+      <SiteHeader />
 
       <section className="hero-card">
         <div className="hero-copy">
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/logo.png`} alt="LX SHOT logo" className="hero-logo" />
           <p className="eyebrow">Premium coffee for modern rituals</p>
           <h1>Crafted roasts that turn every sip into a signature moment.</h1>
           <p className="hero-text">Discover elevated blends, seasonal release notes, and refined house brewing essentials.</p>
@@ -88,6 +64,18 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="collections-grid" aria-label="Collections">
+        <h2>Collections</h2>
+        <div className="collection-items">
+          {collections.map((collection) => (
+            <Link key={collection.title} href={collection.href} className="collection-card">
+              <h3>{collection.title}</h3>
+              <p>{collection.description}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <section className="shop-grid" aria-label="Featured coffee products">
         <div className="carousel-controls">
           <button className="button-secondary" onClick={() => setCarouselIndex(Math.max(0, carouselIndex - 1))}>Prev</button>
@@ -100,21 +88,12 @@ export default function HomePage() {
         </div>
 
         <div className="carousel-viewport">
-          <div className="carousel-track" ref={trackRef}>
-            {featuredProducts.map((product, index) => (
+          <div className="carousel-track" ref={trackRef} style={{ transform: `translateX(-${carouselIndex * 100}%)` }}>
+            {featuredProducts.map((product) => (
               <article key={product.name} className="product-card">
-                <div className={`product-visual product-visual--${index}`}>
-                  <div className="product-badge">{product.origin}</div>
-                  <div className="product-abstract" />
-                  <div className="product-gold-stamp" aria-hidden>
-                    <svg width="84" height="84" viewBox="0 0 84 84" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="0" y="0" width="84" height="84" rx="10" fill="#0B0B0B" />
-                      <g transform="translate(6,10)">
-                        <text x="36" y="34" textAnchor="middle" fontFamily="Georgia, serif" fontSize="18" fill="#D4AF37" fontWeight="700" letterSpacing="2">LX</text>
-                        <text x="36" y="54" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="8" fill="#C5A880">SHOT</text>
-                      </g>
-                    </svg>
-                  </div>
+                <div className="product-visual">
+                  <span className="product-badge">{product.origin}</span>
+                  <ProductPackaging product={product} />
                 </div>
                 <div className="product-copy">
                   <p className="product-origin">{product.origin}</p>
@@ -122,7 +101,7 @@ export default function HomePage() {
                   <p>{product.description}</p>
                   <div className="price-row">
                     <div className="price">${product.price.toFixed(2)}</div>
-                    <button className="button-primary" onClick={() => add({ name: product.name, price: product.price })}>Add to cart</button>
+                    <button className="button-primary" onClick={() => add(product)}>Add to cart</button>
                   </div>
                 </div>
               </article>
@@ -131,7 +110,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      <CartDrawer />
+      <section className="story-grid" aria-label="Why LX SHOT">
+        <div className="story-item">
+          <h2>Refined sourcing</h2>
+          <p>We partner with specialty farms to source single-origin lots that highlight clarity, sweetness, and terroir.</p>
+        </div>
+        <div className="story-item">
+          <h2>Premium packaging</h2>
+          <p>Matte black finishes, gold accents, and luxury unboxing combine for a premium coffee experience.</p>
+        </div>
+        <div className="story-item">
+          <h2>Everyday ritual</h2>
+          <p>From elegant capsules to signature beans, LX SHOT makes specialty coffee feel effortless and elevated.</p>
+        </div>
+      </section>
+
+      <SiteFooter />
     </main>
   );
 }

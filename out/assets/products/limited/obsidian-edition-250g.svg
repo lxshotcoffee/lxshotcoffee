@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1020" viewBox="0 0 720 1020">
+  <defs>
+    <linearGradient id="limitedMatte" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#050505"/>
+      <stop offset="100%" stop-color="#131313"/>
+    </linearGradient>
+    <filter id="limitedShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <g transform="translate(60,60)" filter="url(#limitedShadow)">
+    <rect x="0" y="0" width="600" height="900" rx="52" fill="url(#limitedMatte)"/>
+    <rect x="54" y="160" width="492" height="372" rx="26" fill="#080808" stroke="#1b1b1b"/>
+    <image href="../../logo.png" x="94" y="200" width="110" height="110" preserveAspectRatio="xMidYMid meet"/>
+    <text x="220" y="266" font-family="Montserrat, Arial, sans-serif" font-size="34" fill="#F6EFE7" font-weight="700">Obsidian Edition</text>
+    <text x="220" y="296" font-family="Inter, Arial, sans-serif" font-size="13" fill="#cbbfa6">Limited Edition • 250g</text>
+    <text x="94" y="368" font-family="Inter, Arial, sans-serif" font-size="13" fill="#e8dccb">Exotic black plum, cedar smoke, and velvety intensity in a collector’s release.</text>
+    <rect x="94" y="460" width="156" height="44" rx="10" fill="#0d0d0d" stroke="#222"/>
+    <text x="172" y="490" font-family="Inter, Arial, sans-serif" font-size="14" fill="#d4a36b" text-anchor="middle">250G</text>
+  </g>
+</svg>

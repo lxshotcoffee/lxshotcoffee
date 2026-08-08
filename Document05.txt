@@ -1,0 +1,80 @@
+--- PAGE 1 ---
+Document 05 
+LX SHOT PRODUCT CATALOG, PACKAGING & CONTENT LIBRARY 
+Estimated Length: 80–120 pages 
+Complete product system. 
+Product Categories 
+Whole Bean 
+Ground Coffee 
+Instant Coffee 
+Coffee Pods 
+Coffee Stick Packs 
+Luxury Gift Boxes 
+Limited Editions 
+Reserve Collection 
+Accessories 
+Brewing Equipment 
+Products 
+Approximately 50 premium products. 
+Every product includes: 
+Product Name 
+Origin 
+Roast 
+Altitude 
+Flavor Notes 
+Body 
+Acidity 
+Brewing Guide 
+
+
+--- PAGE 2 ---
+Description 
+Short Description 
+SEO Description 
+Meta Title 
+Meta Description 
+Packaging Size 
+100 g 
+200 g 
+500 g 
+Luxury Tin 
+Luxury Tube 
+Travel Pack 
+Gift Box 
+Subscription Pack 
+Packaging 
+Matte black 
+Gold foil 
+Embossed logo 
+Luxury labels 
+Premium box interiors 
+Premium shipping cartons 
+Gift wrapping 
+Images Required 
+Front 
+Back 
+Side 
+
+
+--- PAGE 3 ---
+Lifestyle 
+Studio 
+Macro 
+Coffee beans 
+Steam 
+Brewing 
+Packaging close-up 
+Product Animations 
+Hover 
+Rotation 
+Zoom 
+3D preview 
+360° view 
+ 
+Final Result 
+These five documents together will serve as a complete "source of truth" for the GitHub AI 
+agent. They will define every important aspect of the website—from branding and visual 
+identity to ecommerce flows, page layouts, product presentation, packaging, animations, and 
+technical standards—while staying faithful to the luxury positioning, calm tone, and specialty 
+coffee identity established in your uploaded LX SHOT brand story and tone guide.  
+ 

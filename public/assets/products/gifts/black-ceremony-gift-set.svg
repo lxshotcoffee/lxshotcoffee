@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="560" viewBox="0 0 760 560">
+  <defs>
+    <linearGradient id="giftMatte" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#050505"/>
+      <stop offset="100%" stop-color="#121212"/>
+    </linearGradient>
+    <filter id="giftShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="18" stdDeviation="28" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <g transform="translate(40,40)" filter="url(#giftShadow)">
+    <rect x="0" y="0" width="680" height="480" rx="28" fill="url(#giftMatte)"/>
+    <rect x="48" y="48" width="584" height="184" rx="18" fill="#090909" stroke="#1b1b1b"/>
+    <image href="../../logo.png" x="84" y="76" width="112" height="112" preserveAspectRatio="xMidYMid meet"/>
+    <text x="216" y="118" font-family="Montserrat, Arial, sans-serif" font-size="32" fill="#F6EFE7" font-weight="700">Black Ceremony</text>
+    <text x="216" y="146" font-family="Inter, Arial, sans-serif" font-size="13" fill="#cbbfa6">Luxury Gift Set</text>
+    <rect x="84" y="268" width="504" height="134" rx="16" fill="#0b0b0b" stroke="#232323"/>
+    <text x="104" y="308" font-family="Inter, Arial, sans-serif" font-size="13" fill="#e8dccb">Premium presentation box with curated single-origin selections and a branded tasting guide.</text>
+    <text x="104" y="346" font-family="Inter, Arial, sans-serif" font-size="13" fill="#d4a36b">Gift-ready for special occasions.</text>
+  </g>
+</svg>

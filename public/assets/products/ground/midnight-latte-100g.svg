@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="1050" viewBox="0 0 700 1050">
+  <defs>
+    <linearGradient id="matte2" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0b0b0b"/>
+      <stop offset="100%" stop-color="#141212"/>
+    </linearGradient>
+    <filter id="softshadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="14" stdDeviation="28" flood-color="#000" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+
+  <g transform="translate(60,70)" filter="url(#softshadow)">
+    <rect x="0" y="0" width="580" height="910" rx="44" fill="url(#matte2)"/>
+    <rect x="36" y="160" width="508" height="380" rx="18" fill="#0b0b0b" stroke="#1a1919"/>
+    <image href="../../logo.png" x="84" y="200" width="160" height="160" preserveAspectRatio="xMidYMid meet"/>
+    <text x="260" y="260" font-family="Montserrat, Arial, sans-serif" font-size="28" fill="#F6EFE7" font-weight="700">Midnight Latte</text>
+    <text x="260" y="300" font-family="Inter, Arial, sans-serif" font-size="14" fill="#cbbfa6">Ethiopia • 100g • Ground</text>
+    <text x="84" y="380" font-family="Inter, Arial, sans-serif" font-size="13" fill="#e8dccb">Silky florals, milk-warmth, refined sweetness</text>
+    <rect x="84" y="480" width="120" height="40" rx="8" fill="#0f0f0f" stroke="#222"/>
+    <text x="144" y="508" font-family="Inter, Arial, sans-serif" font-size="14" fill="#d4a36b" text-anchor="middle">100G</text>
+  </g>
+</svg>
