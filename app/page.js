@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
@@ -27,6 +27,8 @@ const featuredProducts = [
 
 export default function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  const trackRef = useRef(null);
 
   const activeProduct = useMemo(() => featuredProducts[activeIndex], [activeIndex]);
 

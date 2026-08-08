@@ -16,13 +16,22 @@ export default function RootLayout({ children }) {
           <div className="brand-row">
             <Link href="/" className="brand-mark">
               <div className="brand-logo" aria-hidden>
-                <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="brand-logo-svg">
-                  <rect x="0" y="0" width="48" height="48" rx="8" fill="#0f0b09" />
-                  <path d="M12 28c4-6 12-6 16 0" stroke="#d4a36b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                  <text x="24" y="30" textAnchor="middle" fontFamily="Verdana, Arial, sans-serif" fontSize="10" fill="#f6efe7" fontWeight="700">LX</text>
+                <svg width="120" height="42" viewBox="0 0 220 42" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LX SHOT logo">
+                  <defs>
+                    <linearGradient id="gold" x1="0" x2="1">
+                      <stop offset="0%" stopColor="#D4AF37" />
+                      <stop offset="100%" stopColor="#C5A880" />
+                    </linearGradient>
+                  </defs>
+                  <g fill="none" fillRule="evenodd">
+                    <rect x="0" y="0" width="44" height="42" rx="8" fill="#0B0B0B" />
+                    <g transform="translate(6,6)">
+                      <circle cx="12" cy="12" r="6" fill="url(#gold)" opacity="0.95" />
+                    </g>
+                    <text x="64" y="28" fontFamily="Georgia, 'Times New Roman', serif" fontSize="20" fill="#F6EFE7" fontWeight="600" letterSpacing="6">LX SHOT</text>
+                  </g>
                 </svg>
               </div>
-              <span>LX SHOT</span>
             </Link>
             <nav className="top-nav">
               <Link href="/">Home</Link>
