@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState, useEffect } from 'react';
 import { useCart } from './components/CartContext';
 
 const featuredProducts = [
@@ -27,10 +27,19 @@ const featuredProducts = [
 
 export default function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  const trackRef = useRef(null);
 
   const activeProduct = useMemo(() => featuredProducts[activeIndex], [activeIndex]);
 
   const { add } = useCart();
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const cardWidth = track.querySelector('.product-card')?.clientWidth || 320;
+    track.style.transform = `translateX(-${carouselIndex * (cardWidth + 24)}px)`;
+  }, [carouselIndex]);
 
   return (
     <main className="page-shell">
@@ -66,24 +75,46 @@ export default function HomePage() {
       </section>
 
       <section className="shop-grid" aria-label="Featured coffee products">
-        {featuredProducts.map((product, index) => (
-          <article key={product.name} className="product-card">
-            <div className={`product-visual product-visual--${index}`} aria-hidden>
-              <div className="product-badge">{product.origin}</div>
-              <div className="product-abstract" />
-              <img src="/lxshotcoffee/assets/logo.png" alt="brand" className="product-logo-overlay" />
-            </div>
-            <div className="product-copy">
-              <p className="product-origin">{product.origin}</p>
-              <h2>{product.name}</h2>
-              <p>{product.description}</p>
-              <div style={{marginTop:8,display:'flex',gap:8}}>
-                <button className="button-secondary" onClick={() => setActiveIndex(index)}>View details</button>
-                <button className="button-primary" onClick={() => add({ name: product.name, price: 18.0 })}>Add to cart</button>
-              </div>
-            </div>
-          </article>
-        ))}
+        <div className="carousel-controls">
+          <button className="button-secondary" onClick={() => setCarouselIndex(Math.max(0, carouselIndex - 1))}>Prev</button>
+          <div className="dots">
+            {featuredProducts.map((p, i) => (
+              <button key={p.name} className={i === carouselIndex ? 'dot active' : 'dot'} onClick={() => setCarouselIndex(i)} aria-label={`Show ${p.name}`} />
+            ))}
+          </div>
+          <button className="button-secondary" onClick={() => setCarouselIndex(Math.min(featuredProducts.length - 1, carouselIndex + 1))}>Next</button>
+        </div>
+
+        <div className="carousel-viewport">
+          <div className="carousel-track" ref={trackRef}>
+            {featuredProducts.map((product, index) => (
+              <article key={product.name} className="product-card">
+                <div className={`product-visual product-visual--${index}`} aria-hidden>
+                  <div className="product-badge">{product.origin}</div>
+                  <div className="product-abstract" />
+                  <div className="product-gold-stamp" aria-hidden>
+                    <svg width="84" height="84" viewBox="0 0 84 84" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="0" y="0" width="84" height="84" rx="10" fill="#0B0B0B" />
+                      <g transform="translate(6,10)">
+                        <text x="36" y="34" textAnchor="middle" fontFamily="Georgia, serif" fontSize="18" fill="#D4AF37" fontWeight="700" letterSpacing="2">LX</text>
+                        <text x="36" y="54" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="8" fill="#C5A880">SHOT</text>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+                <div className="product-copy">
+                  <p className="product-origin">{product.origin} · 340g</p>
+                  <h2>{product.name}</h2>
+                  <p>{product.description}</p>
+                  <div className="price-row">
+                    <div className="price">$18.00</div>
+                    <button className="button-primary" onClick={() => add({ name: product.name, price: 18.0 })}>Add to cart</button>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="showcase-card" aria-label="Interactive product showcase">
