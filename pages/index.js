@@ -3,44 +3,18 @@ import { useRef, useState } from 'react';
 import { useCart } from '../components/CartContext';
 import CartDrawer from '../components/CartDrawer';
 
-const featuredProducts = [
-  {
-    name: 'Velvet Espresso',
-    origin: 'Colombia',
-    description: 'Smooth caramel, dark chocolate, and a velvety crema finish.',
-    price: 18,
-    badge: '200G',
-    notes: 'A tall matte pouch ideal for espresso rituals.',
-    style: 'bag',
-  },
-  {
-    name: 'Midnight Latte',
-    origin: 'Ethiopia',
-    description: 'Silky florals with milk-warmth and a polished, smooth finish.',
-    price: 18,
-    badge: '100G',
-    notes: 'A sleek pouch with premium labeled weight detail.',
-    style: 'bag',
-  },
-  {
-    name: 'Northwind Cold Brew',
-    origin: 'Brazil',
-    description: 'Bold, low-acid coffee crafted for slow mornings and late nights.',
-    price: 18,
-    badge: '10 CT',
-    notes: 'A luxury coffee pod box designed to bring premium convenience.',
-    style: 'pods',
-  },
-];
+import products from '../data/products';
+
+const featuredProducts = products.slice(0, 3);
 
 function ProductPackaging({ product }) {
   if (product.style === 'pods') {
     return (
       <div className="pod-box">
         <div className="pod-panel">
-          <img src="/lxshotcoffee/assets/logo.png" alt="LX SHOT logo" className="pod-logo" />
+          <img src={product.image} alt={product.imageAlt} className="pod-logo" />
           <div className="pod-brand">PREMIUM COFFEE PODS</div>
-          <div className="pod-detail">{product.badge}</div>
+          <div className="pod-detail">{product.weight}</div>
         </div>
       </div>
     );
@@ -50,10 +24,10 @@ function ProductPackaging({ product }) {
     <div className="product-bag">
       <div className="bag-seal" />
       <div className="bag-body">
-        <img src="/lxshotcoffee/assets/logo.png" alt="LX SHOT logo" className="bag-logo" />
+        <img src={product.image} alt={product.imageAlt} className="bag-logo" />
         <div className="bag-title">{product.name}</div>
-        <div className="bag-badge">{product.badge}</div>
-        <p className="bag-copy">{product.notes}</p>
+        <div className="bag-badge">{product.weight}</div>
+        <p className="bag-copy">{product.description}</p>
       </div>
     </div>
   );
@@ -133,7 +107,7 @@ export default function HomePage() {
                   <p>{product.description}</p>
                   <div className="price-row">
                     <div className="price">${product.price.toFixed(2)}</div>
-                    <button className="button-primary" onClick={() => add({ name: product.name, price: product.price })}>Add to cart</button>
+                    <button className="button-primary" onClick={() => add(product)}>Add to cart</button>
                   </div>
                 </div>
               </article>

@@ -105,3 +105,19 @@ a { text-decoration: none; color: inherit; }
   .two-column { flex-direction: column; }
   .page-shell { padding: 1.5rem 0.9rem 3rem; }
 }
+
+/* Packaging visuals */
+.product-bag { width: 78%; height: 78%; border-radius: 18px; background: linear-gradient(180deg,#0b0b0b,#141414); display:flex; align-items:center; justify-content:center; box-shadow: inset 0 -30px 60px rgba(255,255,255,0.02); }
+.product-bag .bag-body { width:88%; padding: 26px; border-radius:12px; text-align:left; color:#e8dccb; }
+.bag-logo { width:120px; height:auto; display:block; margin-bottom:18px; filter: drop-shadow(0 6px 18px rgba(0,0,0,0.6)); }
+.bag-title { font-weight:700; color:#f6efe7; font-size:1.05rem; margin-bottom:6px; }
+.bag-badge { color:#d4a36b; font-weight:700; margin-bottom:8px; }
+.bag-copy { color:#dcd1bf; font-size:0.92rem; }
+
+.pod-box { width:78%; height:78%; display:flex; align-items:center; justify-content:center; }
+.pod-panel { width:88%; padding:20px; border-radius:12px; background: linear-gradient(180deg,#070707,#0d0d0d); text-align:center; }
+.pod-logo { width:96px; height:auto; display:block; margin: 6px auto 12px; filter: drop-shadow(0 6px 18px rgba(0,0,0,0.6)); }
+.pod-brand{ color:#F6EFE7; font-weight:700; margin-bottom:8px; letter-spacing:0.12em;}
+.pod-detail{ color:#d4a36b; font-weight:700;}
+
+.product-card:hover .product-visual img, .product-card:hover .product-bag, .product-card:hover .pod-box { transform: translateY(-6px) scale(1.02); transition: transform 260ms ease; box-shadow: 0 24px 60px rgba(0,0,0,0.45); }

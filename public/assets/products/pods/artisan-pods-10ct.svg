@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="500" viewBox="0 0 700 500">
+  <defs>
+    <linearGradient id="boxGrad" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0b0b0b"/>
+      <stop offset="100%" stop-color="#121212"/>
+    </linearGradient>
+    <filter id="boxShadow">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+
+  <g transform="translate(40,40)" filter="url(#boxShadow)">
+    <rect x="0" y="0" width="620" height="420" rx="20" fill="url(#boxGrad)"/>
+    <rect x="36" y="36" width="548" height="348" rx="12" fill="#0b0b0b" stroke="#161616"/>
+    <image href="/lxshotcoffee/assets/logo.png" x="56" y="56" width="120" height="120" preserveAspectRatio="xMidYMid meet"/>
+    <text x="200" y="110" font-family="Montserrat, Arial, sans-serif" font-size="30" fill="#F6EFE7" font-weight="700">Artisan Coffee Pods</text>
+    <text x="200" y="150" font-family="Inter, Arial, sans-serif" font-size="14" fill="#cbbfa6">Premium single-serve pods • 10 CT</text>
+    <rect x="56" y="260" width="160" height="48" rx="10" fill="#0f0f0f" stroke="#232323"/>
+    <text x="136" y="292" font-family="Inter, Arial, sans-serif" font-size="16" fill="#d4a36b" text-anchor="middle">10 CT</text>
+  </g>
+</svg>

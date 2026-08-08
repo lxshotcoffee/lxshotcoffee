@@ -1,21 +1,18 @@
 import Link from 'next/link';
 import { useCart } from '../components/CartContext';
 
-const shopProducts = [
-  { name: 'Velvet Espresso', price: 18, origin: 'Colombia', badge: '200G', notes: 'Rich crema and dark caramel complexity.', style: 'bag' },
-  { name: 'Midnight Latte', price: 18, origin: 'Ethiopia', badge: '100G', notes: 'Soft florals and milk-sweet clarity.', style: 'bag' },
-  { name: 'Northwind Cold Brew', price: 18, origin: 'Brazil', badge: '200G', notes: 'Low-acid black roast for slow sipping.', style: 'bag' },
-  { name: 'Artisan Coffee Pods', price: 22, origin: '10-Pack Pods', badge: '10 CT', notes: 'Premium single-serve pods in a luxury box.', style: 'pods' },
-];
+import products from '../data/products';
+
+const shopProducts = products;
 
 function ProductPackaging({ product }) {
   if (product.style === 'pods') {
     return (
       <div className="pod-box">
         <div className="pod-panel">
-          <img src="/lxshotcoffee/assets/logo.png" alt="LX SHOT logo" className="pod-logo" />
+          <img src={product.image} alt={product.imageAlt} className="pod-logo" />
           <div className="pod-brand">PREMIUM COFFEE PODS</div>
-          <div className="pod-detail">{product.badge}</div>
+          <div className="pod-detail">{product.weight}</div>
         </div>
       </div>
     );
@@ -25,10 +22,10 @@ function ProductPackaging({ product }) {
     <div className="product-bag">
       <div className="bag-seal" />
       <div className="bag-body">
-        <img src="/lxshotcoffee/assets/logo.png" alt="LX SHOT logo" className="bag-logo" />
+        <img src={product.image} alt={product.imageAlt} className="bag-logo" />
         <div className="bag-title">{product.name}</div>
-        <div className="bag-badge">{product.badge}</div>
-        <p className="bag-copy">{product.notes}</p>
+        <div className="bag-badge">{product.weight}</div>
+        <p className="bag-copy">{product.description}</p>
       </div>
     </div>
   );
@@ -72,7 +69,7 @@ export default function ShopPage() {
               <p>{product.notes}</p>
               <div className="price-row">
                 <div className="price">${product.price.toFixed(2)}</div>
-                <button className="button-primary" onClick={() => add({ name: product.name, price: product.price })}>Add to cart</button>
+                <button className="button-primary" onClick={() => add(product)}>Add to cart</button>
               </div>
             </div>
           </article>
