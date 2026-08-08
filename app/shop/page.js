@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { useCart } from '../../app/components/CartContext';
+import { useCart } from '../components/CartContext';
 
 const products = [
   { name: 'Velvet Espresso', price: 18, origin: 'Colombia' },

@@ -49,8 +49,9 @@ export default function RootLayout({ children }) {
             <div className="footer-brand">
               <div className="brand-logo-sm" aria-hidden>
                 <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="0" y="0" width="48" height="48" rx="8" fill="#0f0b09" />
-                  <text x="24" y="30" textAnchor="middle" fontFamily="Verdana, Arial, sans-serif" fontSize="12" fill="#f6efe7" fontWeight="700">LX</text>
+                  <rect x="0" y="0" width="48" height="48" rx="8" fill="#0B0B0B" />
+                  <circle cx="24" cy="16" r="6" fill="#D4AF37" />
+                  <text x="24" y="36" textAnchor="middle" fontFamily="Georgia, serif" fontSize="12" fill="#D4AF37" fontWeight="700">LX</text>
                 </svg>
               </div>
               <div className="brand-copy">
