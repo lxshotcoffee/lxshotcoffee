@@ -1,11 +1,38 @@
 import Link from 'next/link';
 import { useCart } from '../components/CartContext';
 
-const products = [
-  { name: 'Velvet Espresso', price: 18, origin: 'Colombia' },
-  { name: 'Midnight Latte', price: 18, origin: 'Ethiopia' },
-  { name: 'Northwind Cold Brew', price: 18, origin: 'Brazil' },
+const shopProducts = [
+  { name: 'Velvet Espresso', price: 18, origin: 'Colombia', badge: '200G', notes: 'Rich crema and dark caramel complexity.', style: 'bag' },
+  { name: 'Midnight Latte', price: 18, origin: 'Ethiopia', badge: '100G', notes: 'Soft florals and milk-sweet clarity.', style: 'bag' },
+  { name: 'Northwind Cold Brew', price: 18, origin: 'Brazil', badge: '200G', notes: 'Low-acid black roast for slow sipping.', style: 'bag' },
+  { name: 'Artisan Coffee Pods', price: 22, origin: '10-Pack Pods', badge: '10 CT', notes: 'Premium single-serve pods in a luxury box.', style: 'pods' },
 ];
+
+function ProductPackaging({ product }) {
+  if (product.style === 'pods') {
+    return (
+      <div className="pod-box">
+        <div className="pod-panel">
+          <img src="/lxshotcoffee/assets/logo.png" alt="LX SHOT logo" className="pod-logo" />
+          <div className="pod-brand">PREMIUM COFFEE PODS</div>
+          <div className="pod-detail">{product.badge}</div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="product-bag">
+      <div className="bag-seal" />
+      <div className="bag-body">
+        <img src="/lxshotcoffee/assets/logo.png" alt="LX SHOT logo" className="bag-logo" />
+        <div className="bag-title">{product.name}</div>
+        <div className="bag-badge">{product.badge}</div>
+        <p className="bag-copy">{product.notes}</p>
+      </div>
+    </div>
+  );
+}
 
 export default function ShopPage() {
   const { add } = useCart();
@@ -15,24 +42,12 @@ export default function ShopPage() {
       <header className="site-header">
         <div className="brand-row">
           <Link href="/" className="brand-mark">
-            <div className="brand-logo" aria-hidden>
-              <svg width="132" height="46" viewBox="0 0 240 46" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LX SHOT logo">
-                <defs>
-                  <linearGradient id="goldLogoShop" x1="0" x2="1">
-                    <stop offset="0%" stopColor="#D4AF37" />
-                    <stop offset="100%" stopColor="#C5A880" />
-                  </linearGradient>
-                </defs>
-                <rect x="0" y="0" width="48" height="46" rx="10" fill="#111111" />
-                <circle cx="24" cy="18" r="6" fill="url(#goldLogoShop)" />
-                <text x="64" y="34" fontFamily="Georgia, serif" fontSize="24" fill="#F6EFE7" fontWeight="700" letterSpacing="5">LX SHOT</text>
-              </svg>
-            </div>
+            <img src="/lxshotcoffee/assets/logo.png" alt="LX SHOT logo" className="brand-logo-img" />
           </Link>
           <nav className="top-nav">
             <Link href="/">Home</Link>
-            <Link href="/shop">Shop</Link>
-            <Link href="/story">Story</Link>
+            <Link href="/shop/">Shop</Link>
+            <Link href="/story/">Story</Link>
           </nav>
         </div>
       </header>
@@ -45,23 +60,16 @@ export default function ShopPage() {
       </section>
 
       <section className="shop-grid">
-        {products.map((product, index) => (
+        {shopProducts.map((product) => (
           <article key={product.name} className="product-card">
-            <div className={`product-visual product-visual--${index}`}>
-              <div className="product-abstract" />
-              <div className="product-gold-stamp" aria-hidden>
-                <svg width="84" height="84" viewBox="0 0 84 84" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="0" y="0" width="84" height="84" rx="10" fill="#0B0B0B" />
-                  <g transform="translate(6,10)">
-                    <text x="36" y="34" textAnchor="middle" fontFamily="Georgia, serif" fontSize="18" fill="#D4AF37" fontWeight="700" letterSpacing="2">LX</text>
-                    <text x="36" y="54" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="8" fill="#C5A880">SHOT</text>
-                  </g>
-                </svg>
-              </div>
+            <div className="product-visual">
+              <span className="product-badge">{product.origin}</span>
+              <ProductPackaging product={product} />
             </div>
             <div className="product-copy">
-              <p className="product-origin">{product.origin} · 340g</p>
+              <p className="product-origin">{product.origin}</p>
               <h2>{product.name}</h2>
+              <p>{product.notes}</p>
               <div className="price-row">
                 <div className="price">${product.price.toFixed(2)}</div>
                 <button className="button-primary" onClick={() => add({ name: product.name, price: product.price })}>Add to cart</button>

@@ -18,19 +18,7 @@ export default function CheckoutPage() {
       <header className="site-header">
         <div className="brand-row">
           <Link href="/" className="brand-mark">
-            <div className="brand-logo" aria-hidden>
-              <svg width="132" height="46" viewBox="0 0 240 46" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LX SHOT logo">
-                <defs>
-                  <linearGradient id="goldLogoCheckout" x1="0" x2="1">
-                    <stop offset="0%" stopColor="#D4AF37" />
-                    <stop offset="100%" stopColor="#C5A880" />
-                  </linearGradient>
-                </defs>
-                <rect x="0" y="0" width="48" height="46" rx="10" fill="#111111" />
-                <circle cx="24" cy="18" r="6" fill="url(#goldLogoCheckout)" />
-                <text x="64" y="34" fontFamily="Georgia, serif" fontSize="24" fill="#F6EFE7" fontWeight="700" letterSpacing="5">LX SHOT</text>
-              </svg>
-            </div>
+            <img src="/lxshotcoffee/assets/logo.png" alt="LX SHOT logo" className="brand-logo-img" />
           </Link>
           <nav className="top-nav">
             <Link href="/">Home</Link>
@@ -107,7 +95,7 @@ export default function CheckoutPage() {
               <strong>${totalPrice}</strong>
             </div>
             <button className="button-primary button-block" type="submit">Pay securely</button>
-            <button className="button-secondary button-block" type="button" onClick={() => window.location.href = '/shop/'}>Back to shop</button>
+            <Link href="/shop/" className="button-secondary button-block">Back to shop</Link>
           </div>
         </form>
 
