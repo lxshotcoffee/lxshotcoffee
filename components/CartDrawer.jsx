@@ -8,20 +8,20 @@ export default function CartDrawer() {
   const { items, remove, clear, open, setOpen } = useCart();
 
   return (
-    <aside className={"cart-drawer" + (open ? " cart-open" : "") } aria-hidden={!open}>
+    <aside className={"cart-drawer" + (open ? ' cart-open' : '')} aria-hidden={!open}>
       <div className="cart-inner">
         <button className="cart-close" onClick={() => setOpen(false)}>Close</button>
         <h3>Your Cart</h3>
         <div className="cart-items">
           {items.length === 0 && <p className="muted">Your cart is empty.</p>}
-          {items.map(it => (
-            <div className="cart-row" key={it.name}>
+          {items.map((item) => (
+            <div className="cart-row" key={item.name}>
               <div>
-                <strong>{it.name}</strong>
-                <div className="muted">Qty: {it.qty}</div>
+                <strong>{item.name}</strong>
+                <div className="muted">Qty: {item.qty}</div>
               </div>
               <div>
-                <button className="button-secondary" onClick={() => remove(it.name)}>Remove</button>
+                <button className="button-secondary" onClick={() => remove(item.name)}>Remove</button>
               </div>
             </div>
           ))}
