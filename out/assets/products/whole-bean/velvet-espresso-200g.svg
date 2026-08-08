@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="matte" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0b0b0b"/>
+      <stop offset="100%" stop-color="#0f0f0f"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" x2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.02)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.0)"/>
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="18" stdDeviation="40" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- pouch background -->
+  <g filter="url(#shadow)" transform="translate(80,80)">
+    <rect rx="48" ry="48" x="0" y="0" width="640" height="960" fill="url(#matte)" stroke="#121212" stroke-width="2" />
+    <!-- subtle highlight fold -->
+    <rect x="24" y="40" width="592" height="120" rx="32" fill="url(#shine)" opacity="0.08" />
+    <!-- front label panel -->
+    <rect x="58" y="180" width="524" height="420" rx="20" fill="#0b0b0b" stroke="#191919" stroke-width="1" />
+    <!-- gold foil strip -->
+    <rect x="98" y="220" width="444" height="6" fill="#D4AF37" opacity="0.95" rx="3" />
+    <!-- product title -->
+    <text x="120" y="300" font-family="Montserrat, Arial, sans-serif" font-size="38" fill="#F6EFE7" font-weight="700">Velvet Espresso</text>
+    <!-- origin & weight -->
+    <text x="120" y="350" font-family="Inter, Arial, sans-serif" font-size="16" fill="#cbbfa6">Colombia • 200g • Whole Bean</text>
+    <!-- flavor notes -->
+    <text x="120" y="400" font-family="Inter, Arial, sans-serif" font-size="14" fill="#e8dccb">Dark caramel, cocoa, smooth crema finish</text>
+
+    <!-- gold circular brand stamp -->
+    <g transform="translate(420,260)">
+      <circle r="52" fill="#D4AF37"/>
+      <circle r="44" fill="#0b0b0b"/>
+      <image href="../../logo.png" x="-36" y="-36" width="72" height="72" preserveAspectRatio="xMidYMid meet"/>
+    </g>
+
+    <!-- bottom weight badge -->
+    <rect x="120" y="520" width="120" height="46" rx="10" fill="#0f0f0f" stroke="#222"/>
+    <text x="180" y="554" font-family="Inter, Arial, sans-serif" font-size="14" fill="#d4a36b" text-anchor="middle">200G</text>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520">
+  <defs>
+    <linearGradient id="pressBg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#050505"/>
+      <stop offset="100%" stop-color="#191815"/>
+    </linearGradient>
+  </defs>
+  <rect width="520" height="520" rx="42" fill="url(#pressBg)"/>
+  <rect x="156" y="110" width="208" height="256" rx="80" fill="#111" stroke="#3d352e" stroke-width="4"/>
+  <rect x="182" y="124" width="152" height="212" rx="60" fill="#0d0d0d"/>
+  <circle cx="262" cy="204" r="40" fill="#161211" stroke="#3a3228" stroke-width="4"/>
+  <path d="M202 348h120" stroke="#3d3328" stroke-width="10" stroke-linecap="round"/>
+  <image href="../../logo.png" x="192" y="162" width="96" height="96" preserveAspectRatio="xMidYMid meet"/>
+  <text x="132" y="476" font-family="Inter, Arial, sans-serif" font-size="20" fill="#d4af37" font-weight="700">French Press</text>
+</svg>

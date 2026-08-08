@@ -1,20 +1,16 @@
+import Head from 'next/head';
 import Link from 'next/link';
+import SiteFooter from '../components/SiteFooter';
+import SiteHeader from '../components/SiteHeader';
 
 export default function StoryPage() {
   return (
     <main className="page-shell">
-      <header className="site-header">
-        <div className="brand-row">
-          <Link href="/" className="brand-mark">
-            <img src="/lxshotcoffee/assets/logo.png" alt="LX SHOT logo" className="brand-logo-img" />
-          </Link>
-          <nav className="top-nav">
-            <Link href="/">Home</Link>
-            <Link href="/shop/">Shop</Link>
-            <Link href="/story/">Story</Link>
-          </nav>
-        </div>
-      </header>
+      <Head>
+        <title>Our Story | LX SHOT</title>
+        <meta name="description" content="Learn the LX SHOT story and our commitment to luxury specialty coffee sourcing, roasting, and packaging." />
+      </Head>
+      <SiteHeader />
 
       <section className="hero-card">
         <div>
@@ -29,6 +25,8 @@ export default function StoryPage() {
           <p className="muted">We work directly with growers to source unique lots and roast them to highlight clarity and sweetness.</p>
         </div>
       </section>
+
+      <SiteFooter />
     </main>
   );
 }

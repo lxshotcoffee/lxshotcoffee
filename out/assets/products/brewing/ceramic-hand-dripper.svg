@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520">
+  <defs>
+    <linearGradient id="dripperBg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#080808"/>
+      <stop offset="100%" stop-color="#171514"/>
+    </linearGradient>
+  </defs>
+  <rect width="520" height="520" rx="42" fill="url(#dripperBg)"/>
+  <path d="M176 120h168c28 0 40 14 40 40v174c0 26-12 40-40 40H176c-28 0-40-14-40-40V160c0-26 12-40 40-40Z" fill="#101010" stroke="#342f28" stroke-width="4"/>
+  <path d="M176 160h168" stroke="#3d3328" stroke-width="8"/>
+  <path d="M228 140v210" stroke="#3d3328" stroke-width="6"/>
+  <image href="../../logo.png" x="196" y="172" width="100" height="100" preserveAspectRatio="xMidYMid meet"/>
+  <text x="132" y="478" font-family="Inter, Arial, sans-serif" font-size="20" fill="#d4af37" font-weight="700">Hand Dripper</text>
+</svg>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="520" viewBox="0 0 720 520">
+  <defs>
+    <linearGradient id="capsuleBox" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#080808"/>
+      <stop offset="100%" stop-color="#111111"/>
+    </linearGradient>
+    <filter id="capsuleShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="14" stdDeviation="24" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <g transform="translate(40,40)" filter="url(#capsuleShadow)">
+    <rect x="0" y="0" width="640" height="420" rx="20" fill="url(#capsuleBox)"/>
+    <rect x="48" y="46" width="544" height="200" rx="14" fill="#0a0a0a" stroke="#181818"/>
+    <image href="../../logo.png" x="72" y="72" width="96" height="96" preserveAspectRatio="xMidYMid meet"/>
+    <text x="192" y="112" font-family="Montserrat, Arial, sans-serif" font-size="28" fill="#F6EFE7" font-weight="700">Capsule Reserve</text>
+    <text x="192" y="142" font-family="Inter, Arial, sans-serif" font-size="13" fill="#cbbfa6">Premium capsules • 10 CT</text>
+    <rect x="72" y="262" width="144" height="42" rx="10" fill="#0f0f0f" stroke="#222"/>
+    <text x="144" y="292" font-family="Inter, Arial, sans-serif" font-size="14" fill="#d4a36b" text-anchor="middle">10 CT</text>
+    <text x="72" y="356" font-family="Inter, Arial, sans-serif" font-size="13" fill="#e8dccb">Smooth brew clarity, elegant crema, crafted for modern machines.</text>
+  </g>
+</svg>

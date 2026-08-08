@@ -1,56 +1,26 @@
+"use client";
+
+import Head from 'next/head';
 import Link from 'next/link';
 import { useCart } from '../components/CartContext';
+import ProductPackaging from '../components/ProductPackaging';
+import SiteFooter from '../components/SiteFooter';
+import SiteHeader from '../components/SiteHeader';
 
-const shopProducts = [
-  { name: 'Velvet Espresso', price: 18, origin: 'Colombia', badge: '200G', notes: 'Rich crema and dark caramel complexity.', style: 'bag' },
-  { name: 'Midnight Latte', price: 18, origin: 'Ethiopia', badge: '100G', notes: 'Soft florals and milk-sweet clarity.', style: 'bag' },
-  { name: 'Northwind Cold Brew', price: 18, origin: 'Brazil', badge: '200G', notes: 'Low-acid black roast for slow sipping.', style: 'bag' },
-  { name: 'Artisan Coffee Pods', price: 22, origin: '10-Pack Pods', badge: '10 CT', notes: 'Premium single-serve pods in a luxury box.', style: 'pods' },
-];
+import products from '../data/products';
 
-function ProductPackaging({ product }) {
-  if (product.style === 'pods') {
-    return (
-      <div className="pod-box">
-        <div className="pod-panel">
-          <img src="/lxshotcoffee/assets/logo.png" alt="LX SHOT logo" className="pod-logo" />
-          <div className="pod-brand">PREMIUM COFFEE PODS</div>
-          <div className="pod-detail">{product.badge}</div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="product-bag">
-      <div className="bag-seal" />
-      <div className="bag-body">
-        <img src="/lxshotcoffee/assets/logo.png" alt="LX SHOT logo" className="bag-logo" />
-        <div className="bag-title">{product.name}</div>
-        <div className="bag-badge">{product.badge}</div>
-        <p className="bag-copy">{product.notes}</p>
-      </div>
-    </div>
-  );
-}
+const shopProducts = products;
 
 export default function ShopPage() {
   const { add } = useCart();
 
   return (
     <main className="page-shell">
-      <header className="site-header">
-        <div className="brand-row">
-          <Link href="/" className="brand-mark">
-            <img src="/lxshotcoffee/assets/logo.png" alt="LX SHOT logo" className="brand-logo-img" />
-          </Link>
-          <nav className="top-nav">
-            <Link href="/">Home</Link>
-            <Link href="/shop/">Shop</Link>
-            <Link href="/story/">Story</Link>
-          </nav>
-        </div>
-      </header>
+      <Head>
+        <title>Shop | LX SHOT</title>
+        <meta name="description" content="Browse LX SHOT specialty coffee, including whole bean, ground, instant, pods, and premium gift sets." />
+      </Head>
+      <SiteHeader />
 
       <section className="hero-card">
         <div>
@@ -61,7 +31,7 @@ export default function ShopPage() {
 
       <section className="shop-grid">
         {shopProducts.map((product) => (
-          <article key={product.name} className="product-card">
+          <article key={product.id} className="product-card">
             <div className="product-visual">
               <span className="product-badge">{product.origin}</span>
               <ProductPackaging product={product} />
@@ -69,15 +39,24 @@ export default function ShopPage() {
             <div className="product-copy">
               <p className="product-origin">{product.origin}</p>
               <h2>{product.name}</h2>
-              <p>{product.notes}</p>
+              <p>{product.description}</p>
               <div className="price-row">
                 <div className="price">${product.price.toFixed(2)}</div>
-                <button className="button-primary" onClick={() => add({ name: product.name, price: product.price })}>Add to cart</button>
+                <div className="product-actions">
+                  <button className="button-primary" onClick={() => add(product)}>
+                    Add to cart
+                  </button>
+                  <Link href={`/shop/${product.slug}/`} className="button-secondary">
+                    View
+                  </Link>
+                </div>
               </div>
             </div>
           </article>
         ))}
       </section>
+
+      <SiteFooter />
     </main>
   );
 }
